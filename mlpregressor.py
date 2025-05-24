@@ -16,7 +16,7 @@ def build_model():
 
 
 def main():
-    f = open(r"./MOC_T1XX.csv", 'rt', encoding='UTF8')
+    f = open(r"./[DATA_INFORMATION].csv", 'rt', encoding='UTF8')
     r = csv.reader(f)
 
     headers = next(r)
@@ -86,7 +86,7 @@ def main():
     # print("evaluate model...")
     # loss, acc = model.evaluate(test_data, test_label)
 
-    model.save("t1xx_model_2")
+    model.save("[MODEL_NAME]")
 
     # print("Test Loss",loss)
     # print("Test Accuracy",acc)
