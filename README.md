@@ -7,7 +7,9 @@
 
 본 프로젝트는 초음파 융착(Ultrasonic Welding) 공정의 불량률을 낮추기 위해, 실제 제조 설비 로그 및 품질 판정 데이터를 기반으로 한 AI 예측 모델을 개발하고, 주요 공정 변수의 최적화 범위를 탐색한 실무형 AI 프로젝트입니다.
 
-![MOC 공정 예시](images/moc_process.png)
+![MOC 예시 이미지](images/MOC.png)
+![MOC 융착 공정](images/융착과정.png)
+![MOC 조립 전후 이미](images/조립전후.png)
 
 ---
 
@@ -40,7 +42,8 @@
   - 다변수 기반 복합 판단 구조 설계
   - 주파수 변화 및 출력값의 예측 성능에 높은 기여도
 
-![t-SNE 시각화](images/tsne_visualization.png)
+![t-SNE 시각화 Raw](images/feature_first.png)
+![t-SNE 시각화 최종 Feature](images/최종_feature_시각화.png)
 
 ---
 
@@ -49,8 +52,6 @@
 - 변수별 공차 허용 범위 도출
 - 시뮬레이터 기반 조합 실험으로 **불량률 50% 이상 감소 가능성 제시**
 - 엔지니어 현장 경험과의 정합성 검증 완료
-
-![공정 최적화 그래프](images/optimization_heatmap.png)
 
 ---
 
