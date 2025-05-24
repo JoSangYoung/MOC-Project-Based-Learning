@@ -7,7 +7,7 @@ from sklearn import svm
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 
-f = open(r"./MOC_T1XX.csv", 'rt', encoding='UTF8')
+f = open(r"./[DATA_INFORMATION].csv", 'rt', encoding='UTF8')
 r = csv.reader(f)
 
 headers = next(r)
