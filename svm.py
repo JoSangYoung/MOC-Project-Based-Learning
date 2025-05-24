@@ -8,7 +8,7 @@ import pickle
 from sklearn.metrics import confusion_matrix
 from joblib import dump, load
 
-f = open(r"./MOC_T1XX.csv", 'rt', encoding='UTF8')
+f = open(r"./[DATA_INFORMATION].csv", 'rt', encoding='UTF8')
 r = csv.reader(f)
 
 headers = next(r)
@@ -66,7 +66,7 @@ test_label = np.concatenate([tmp_ok_label[ok_part:], tmp_ng_label[ng_part:]])
 clf = svm.SVC(kernel='poly')
 clf.fit(data,label)
 
-dump(clf, "svm_model_T1XX.joblib")
+dump(clf, "svm_model.joblib")
 
 
 y_pred = clf.predict(test_data)
