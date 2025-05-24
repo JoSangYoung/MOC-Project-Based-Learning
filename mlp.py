@@ -41,10 +41,10 @@ def Shuffle(data, label):
 def Get_DataFrame(filename, product_name):
     df = pd.read_csv(filename).drop(['Unnamed: 0'],axis=1)
     df = df[df.columns[[0,1,2,3,4,5,8,11,12,13,14]].tolist()]
-    df['생산날짜(L)']=pd.to_datetime(df['생산날짜(L)'],format='%Y-%m-%d %H:%M:%S')
+    df['생산날짜']=pd.to_datetime(df['생산날짜'],format='%Y-%m-%d %H:%M:%S')
     df['Tester']=df['Tester'].astype('category')
     df['Machine']=df['Machine'].astype('category')
-    df['판정(L)']=df['판정(L)'].astype('category')
+    df['판정']=df['판정'].astype('category')
     df['작업모델']=df['작업모델'].astype('category')
     df = df[df['작업모델']==product_name].reset_index(drop=True).drop('작업모델',axis=1)
 
@@ -52,14 +52,14 @@ def Get_DataFrame(filename, product_name):
 
     n_sample = int(df_2021[df_2021["판정(L)"] == "NG"]["판정(L)"].count())
 
-    ok_df = df_2021[df_2021['판정(L)'] == 'OK'].sample(n_sample)
-    ng_df = df_2021[df_2021['판정(L)'] == 'NG'].sample(n_sample)
+    ok_df = df_2021[df_2021['판정'] == 'OK'].sample(n_sample)
+    ng_df = df_2021[df_2021['판정'] == 'NG'].sample(n_sample)
 
     ok_df.drop(['생산날짜(L)','Machine','Tester'],axis=1,inplace=True)
     ng_df.drop(['생산날짜(L)','Machine','Tester'],axis=1,inplace=True)
 
-    ok_df["판정(L)"] = 1
-    ng_df["판정(L)"] = 0
+    ok_df["판정"] = 1
+    ng_df["판정"] = 0
 
     return ok_df, ng_df, n_sample
 
@@ -103,8 +103,8 @@ def Set_Dataset(ok_df, ng_df, n_sample):
 
 
 def main():
-    filename = "./MOC_P1_210929.csv"
-    product_name = "T1XX"
+    filename = "./[DATA_INFORMATION].csv"
+    product_name = "[Product_NAME}"
     logdir = "logs/scalars/"+ product_name + datetime.now().strftime("%Y%m%d-%H%M%S")
     tensorboard_callback = keras.callbacks.TensorBoard(log_dir=logdir)
 
